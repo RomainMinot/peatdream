@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/header/index.astro';
+import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import BaseFooter from '../components/BaseFooter.astro';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+  title?: string;
+  description: string;
+  image?: ImageMetadata;
+}
+
+const { title = SITE_TITLE, description, image = FallbackImage } = Astro.props;
+
+const pageTitle = title !== SITE_TITLE ? `${title} - ${SITE_TITLE}` : SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead title={pageTitle} description={description} image={image} />
+  <body class="bg-accent-50">
+    <Header />
+    <main class="min-h-screen mt-30 px-3.5">
+      <slot />
+    </main>
+    <BaseFooter />
+  </body></html
+>

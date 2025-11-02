@@ -12,7 +12,15 @@
     "@astrojs/mdx": "^4.3.9",
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",
+    "@unocss/reset": "^66.5.4",
     "astro": "^5.15.3",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "@unocss/preset-web-fonts": "^66.5.4",
+    "@unocss/preset-wind4": "^66.5.4",
+    "eslint": "^9.39.0",
+    "eslint-plugin-astro": "^1.4.0",
+    "unocss": "^66.5.4"
   }
 }
