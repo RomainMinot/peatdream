@@ -1,0 +1,55 @@
+---
+interface Props {
+  categories: string[];
+  currentCategory?: string | null;
+}
+
+const { categories, currentCategory } = Astro.props;
+
+// Count posts per category would be done in the parent
+const uniqueCategories = [...new Set(categories)].sort();
+---
+
+<div class="w-full bg-accent-50 border-y border-accent-200 py-6 mb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-lg font-semibold text-accent mb-4">Filtrer par catégorie</h2>
+    <div class="flex flex-wrap gap-3">
+      <a
+        href="/tastings"
+        class={`px-4 py-2 rounded-full transition-all ${
+          !currentCategory
+            ? 'bg-peat text-accent-900 font-semibold'
+            : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200'
+        }`}>
+        Tous
+      </a>
+      {
+        uniqueCategories.map((category) => (
+          <a
+            href={`/tastings?category=${encodeURIComponent(category)}`}
+            class={`px-4 py-2 rounded-full transition-all ${
+              currentCategory === category
+                ? 'bg-peat text-accent-900 font-semibold'
+                : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200'
+            }`}>
+            {category}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  // Handle category filtering with smooth transitions
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryLinks = document.querySelectorAll('a[href*="category="]');
+
+    categoryLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        // Add loading state
+        link.classList.add('opacity-50', 'pointer-events-none');
+      });
+    });
+  });
+</script>

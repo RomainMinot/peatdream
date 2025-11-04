@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  prev?: CollectionEntry<'blog'>;
+  next?: CollectionEntry<'blog'>;
+}
+
+const { prev, next } = Astro.props;
+---
+
+{
+  (prev || next) && (
+    <nav class="border-t-2 border-accent-200 pt-8 mt-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {prev && (
+          <a
+            href={`/tastings/${prev.id}/`}
+            class="group flex flex-col p-6 bg-accent-50 hover:bg-accent-100 rounded-lg transition-all hover:shadow-lg border-2 border-transparent hover:border-peat">
+            <span class="text-sm text-gray-500 mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              Article précédent
+            </span>
+            <span class="text-lg font-semibold text-accent group-hover:text-peat-600 transition-colors">
+              {prev.data.title}
+            </span>
+            {prev.data.category && (
+              <span class="text-sm text-peat-600 mt-2 font-medium">{prev.data.category}</span>
+            )}
+          </a>
+        )}
+
+        {next && (
+          <a
+            href={`/tastings/${next.id}/`}
+            class="group flex flex-col p-6 bg-accent-50 hover:bg-accent-100 rounded-lg transition-all hover:shadow-lg border-2 border-transparent hover:border-peat text-right md:ml-auto">
+            <span class="text-sm text-gray-500 mb-2 flex items-center justify-end gap-2">
+              Article suivant
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </span>
+            <span class="text-lg font-semibold text-accent group-hover:text-peat-600 transition-colors">
+              {next.data.title}
+            </span>
+            {next.data.category && (
+              <span class="text-sm text-peat-600 mt-2 font-medium">{next.data.category}</span>
+            )}
+          </a>
+        )}
+      </div>
+    </nav>
+  )
+}

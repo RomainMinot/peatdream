@@ -1,0 +1,75 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+
+// Filter to only show H2 and H3 headings
+const filteredHeadings = headings.filter((h) => h.depth <= 3);
+---
+
+{
+  filteredHeadings.length > 0 && (
+    <aside class="hidden xl:block">
+      <nav class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
+        <h2 class="text-lg font-semibold text-accent mb-4">Sur cette page</h2>
+        <ul class="space-y-2 text-sm border-l-2 border-accent-200">
+          {filteredHeadings.map((heading) => (
+            <li class={heading.depth === 2 ? 'ml-0' : 'ml-4'}>
+              <a
+                href={`#${heading.slug}`}
+                class={`block py-1 px-3 text-gray-600 hover:text-peat-600 hover:bg-peat-50 rounded transition-colors ${
+                  heading.depth === 2 ? 'font-medium' : ''
+                }`}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  )
+}
+
+<script>
+  // Highlight current section in TOC
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute('id');
+          const tocLink = document.querySelector(`a[href="#${id}"]`);
+          
+          if (entry.isIntersecting) {
+            // Remove active class from all links
+            document.querySelectorAll('aside a').forEach((link) => {
+              link.classList.remove('text-peat-600', 'bg-peat-50', 'font-semibold');
+            });
+            
+            // Add active class to current link
+            if (tocLink) {
+              tocLink.classList.add('text-peat-600', 'bg-peat-50', 'font-semibold');
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-100px 0px -66%',
+      }
+    );
+
+    // Observe all headings
+    document.querySelectorAll('h2, h3').forEach((heading) => {
+      observer.observe(heading);
+    });
+  });
+</script>
+

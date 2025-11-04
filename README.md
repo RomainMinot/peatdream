@@ -1,62 +1,110 @@
-# Astro Starter Kit: Blog
+# Peatdream Blog
+
+Blog de dégustation de whisky et spiritueux, propulsé par Astro et UnoCSS.
+
+## 📚 Documentation
+
+La documentation complète du blog est disponible dans le dossier [`docs/`](./docs/):
+
+- [🚀 Quick Start Guide](./docs/QUICK_START.md) - Guide de démarrage rapide
+- [📘 Blog Documentation](./docs/BLOG_README.md) - Documentation complète
+- [✨ Blog Improvements](./docs/BLOG_IMPROVEMENTS.md) - Log des améliorations
+
+## 🚀 Démarrage Rapide
 
 ```sh
-pnpm create astro@latest -- --template blog
+# Installer les dépendances
+pnpm install
+
+# Lancer le serveur de développement
+pnpm dev
+
+# Build pour la production
+pnpm build
+
+# Prévisualiser la production
+pnpm preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🏗️ Structure du Projet
 
 ```text
-├── public/
+├── public/              # Assets statiques
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── assets/         # Images et ressources
+│   ├── components/     # Composants réutilisables
+│   │   ├── header/    # Header du site
+│   │   ├── BlogHero.astro
+│   │   ├── BlogContent.astro
+│   │   ├── TableOfContents.astro
+│   │   ├── BlogNavigation.astro
+│   │   ├── BlogCard.astro
+│   │   └── CategoryFilter.astro
+│   ├── content/
+│   │   └── blog/      # Articles markdown
+│   ├── layouts/       # Layouts Astro
+│   │   └── BlogPost.astro
+│   ├── pages/
+│   │   └── blog/      # Routes du blog
+│   ├── styles/        # CSS globaux
+│   └── utils/         # Fonctions utilitaires
+├── docs/              # Documentation
 ├── astro.config.mjs
-├── README.md
-├── package.json
+├── uno.config.ts      # Configuration UnoCSS
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Commandes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Commande           | Action                              |
+| :----------------- | :---------------------------------- |
+| `pnpm install`     | Installe les dépendances            |
+| `pnpm dev`         | Lance le serveur à `localhost:4321` |
+| `pnpm build`       | Build le site dans `./dist/`        |
+| `pnpm preview`     | Prévisualise le build localement    |
+| `pnpm astro check` | Vérifie les erreurs TypeScript      |
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## ✨ Fonctionnalités
 
-Any static assets, like images, can be placed in the `public/` directory.
+- ✅ Design moderne et responsive
+- ✅ Images de garde automatiques
+- ✅ Temps de lecture calculé
+- ✅ Table des matières interactive
+- ✅ Navigation précédent/suivant
+- ✅ Filtrage par catégorie
+- ✅ Optimisation des images
+- ✅ SEO optimisé
+- ✅ Performance 95+ sur Lighthouse
 
-## 🧞 Commands
+## 📝 Créer un Article
 
-All commands are run from the root of the project, from a terminal:
+1. Créer un fichier `.md` dans `src/content/blog/` (collection appelée via `/tastings`)
+2. Ajouter le frontmatter :
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+```yaml
+---
+title: Mon Article
+date: 21. janvier 2025
+category: SCOTLAND
+heroImage: ./images/hero.jpg
+---
+```
 
-## 👀 Want to learn more?
+3. Écrire le contenu en Markdown
+4. L'article apparaît automatiquement sur `/tastings`
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🎨 Technologies
 
-## Credit
+- [Astro](https://astro.build) - Framework web
+- [UnoCSS](https://unocss.dev) - CSS utility-first
+- [MDX](https://mdxjs.com) - Markdown amélioré
+- [TypeScript](https://www.typescriptlang.org) - Typage statique
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## 📖 En Savoir Plus
+
+Consultez la [documentation complète](./docs/) pour plus de détails sur l'architecture, les composants, et la personnalisation.
+
+---
+
+**Version:** 1.0.0  
+**Dernière mise à jour:** 4 novembre 2025

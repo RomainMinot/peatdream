@@ -1,0 +1,52 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { calculateReadingTime, extractFirstImage } from '../../utils/readingTime';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post, index) => {
+    // Get previous and next posts (sorted by date)
+    const sortedPosts = [...posts].sort((a, b) => {
+      const dateA = a.data.pubDate || a.data.date;
+      const dateB = b.data.pubDate || b.data.date;
+      return (dateB?.valueOf() || 0) - (dateA?.valueOf() || 0);
+    });
+
+    const currentIndex = sortedPosts.findIndex((p) => p.id === post.id);
+    const prev = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
+    const next = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+
+    return {
+      params: { slug: post.id },
+      props: { post, prev, next },
+    };
+  });
+}
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+  prev?: CollectionEntry<'blog'>;
+  next?: CollectionEntry<'blog'>;
+};
+
+const { post, prev, next } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+
+// Calculate reading time from raw body
+const readingTime = calculateReadingTime(post.body);
+
+// Try to get hero image from frontmatter or extract from content
+const heroImage = post.data.heroImage || extractFirstImage(post.body);
+---
+
+<BlogPost
+  {...post.data}
+  headings={headings}
+  prev={prev}
+  next={next}
+  readingTime={readingTime}
+  heroImage={heroImage}>
+  <Content />
+</BlogPost>

@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import BaseFooter from '../../components/BaseFooter.astro';
+import FallbackImage from '../../assets/blog-placeholder-1.jpg';
+import Header from '../../components/header/index.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { calculateReadingTime, extractFirstImage } from '../../utils/readingTime';
+
+// Get query params for filtering
+const url = new URL(Astro.request.url);
+const currentCategory = url.searchParams.get('category');
+
+const allPosts = (await getCollection('blog'))
+  .sort((a, b) => {
+    const dateA = a.data.pubDate || a.data.date;
+    const dateB = b.data.pubDate || b.data.date;
+    return (dateB?.valueOf() || 0) - (dateA?.valueOf() || 0);
+  })
+  .map((post) => ({
+    ...post,
+    readingTime: calculateReadingTime(post.body),
+    heroImage: post.data.heroImage || extractFirstImage(post.body),
+  }));
+
+// Filter posts by category if specified
+const posts = currentCategory
+  ? allPosts.filter((post) => post.data.category === currentCategory)
+  : allPosts;
+
+// Get all unique categories
+const categories = [
+  ...new Set(allPosts.map((post) => post.data.category).filter(Boolean)),
+] as string[];
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={FallbackImage} />
+  </head>
+  <body class="bg-white">
+    <Header />
+
+    <!-- Page Header -->
+    <div class="pt-32 pb-12 bg-gradient-to-b from-accent-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-accent mb-4">
+          {currentCategory ? `Articles sur ${currentCategory}` : 'Toutes les dégustations'}
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {
+            currentCategory
+              ? `Découvrez nos dégustations et voyages en ${currentCategory}`
+              : 'Découvrez nos dégustations et voyages autour du whisky et des spiritueux'
+          }
+        </p>
+        <div class="mt-4 text-sm text-gray-500">
+          {posts.length} article{posts.length > 1 ? 's' : ''}
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    {
+      categories.length > 0 && (
+        <CategoryFilter categories={categories} currentCategory={currentCategory} />
+      )
+    }
+
+    <!-- Articles Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {
+        posts.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post, index) => (
+              <BlogCard
+                title={post.data.title}
+                slug={post.id}
+                heroImage={post.heroImage}
+                date={post.data.pubDate || post.data.date}
+                category={post.data.category}
+                readingTime={post.readingTime}
+                featured={index === 0}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-12">
+            <p class="text-xl text-gray-600 mb-4">Aucun article trouvé dans cette catégorie.</p>
+            <a href="/tastings" class="text-peat-600 hover:text-peat-700 font-medium">
+              Voir toutes les dégustations →
+            </a>
+          </div>
+        )
+      }
+    </main>
+
+    <BaseFooter />
+  </body>
+</html>
