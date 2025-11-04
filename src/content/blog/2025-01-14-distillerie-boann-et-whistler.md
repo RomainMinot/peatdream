@@ -1,6 +1,6 @@
 ---
 title: DISTILLERIE BOANN et WHISTLER
-date: 14. janvier 2025
+date: 2025-01-14
 category: IRLANDE
 url: https://www.peatdream.com/2025/01/14/distillerie-boann-et-whistler/
 ---

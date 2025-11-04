@@ -1,6 +1,6 @@
 ---
 title: COMPASS BOX et l'histoire d'un cœur en feu !
-date: 01. septembre 2025
+date: 2025-09-01
 category: ECOSSE
 url: https://www.peatdream.com/2025/09/01/compass-box-et-l-histoire-d-un-c%C5%93ur-en-feu/
 ---

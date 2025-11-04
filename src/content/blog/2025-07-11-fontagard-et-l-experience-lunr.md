@@ -1,6 +1,6 @@
 ---
 title: FONTAGARD et l'expérience LUNR
-date: 11. juillet 2025
+date: 2025-07-11
 category: FRANCE
 url: https://www.peatdream.com/2025/07/11/visite-de-la-distillerie-de-fontagard-torb-pndc-folle-blanche-et-lunr/
 ---

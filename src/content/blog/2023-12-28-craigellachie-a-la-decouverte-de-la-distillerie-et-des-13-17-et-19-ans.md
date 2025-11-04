@@ -1,6 +1,6 @@
 ---
 title: CRAIGELLACHIE - A la découverte de la distillerie et des 13, 17 et 19 ans
-date: 28. décembre 2023
+date: 2023-12-28
 category: ECOSSE
 url: https://www.peatdream.com/2023/12/28/craigellachie-a-la-d%C3%A9couverte-de-la-distillerie-et-des-13-17-et-19-ans/
 ---

@@ -1,6 +1,6 @@
 ---
-title: KYRÖ SAUNA STORIES N°2 : LE RETOUR DU BRADPEAT EN TERRE FINLANDAISE
-date: 06. octobre 2025
+title: "KYRÖ SAUNA STORIES N°2 : LE RETOUR DU BRADPEAT EN TERRE FINLANDAISE"
+date: 2025-10-06
 category: FINLAND
 url: https://www.peatdream.com/2025/10/06/kyr%C3%B6-sauna-stories-n-2-le-retour-du-bradpeat-en-terre-finlandaise/
 ---

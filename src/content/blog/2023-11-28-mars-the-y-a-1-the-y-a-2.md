@@ -1,6 +1,6 @@
 ---
-title: MARS The Y.A.#1 & The Y.A.#2
-date: 28. novembre 2023
+title: "MARS The Y.A.#1 & The Y.A.#2"
+date: 2023-11-28
 category: JAPON
 url: https://www.peatdream.com/2023/11/28/mars-the-ya-1-the-ya-2/
 ---

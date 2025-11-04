@@ -1,6 +1,6 @@
 ---
-title: PLANTATION RUM GUYANA 2011 Finish BIG PEAT & DOUGLAS LAING ROCK ISLAND RUM CASK FINISH
-date: 15. janvier 2024
+title: "PLANTATION RUM GUYANA 2011 Finish BIG PEAT & DOUGLAS LAING ROCK ISLAND RUM CASK FINISH"
+date: 2024-01-15
 category: ECOSSE
 url: https://www.peatdream.com/2024/01/15/plantation-rum-guyane-2011-finish-big-peat-douglas-laing-rock-island-rum-cask-finish/
 ---

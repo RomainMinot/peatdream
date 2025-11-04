@@ -1,6 +1,6 @@
 ---
 title: TITANIC DISTILLERS PREMIUM IRISH WHISKEY
-date: 04. mars 2024
+date: 2024-03-04
 category: IRLANDE
 url: https://www.peatdream.com/2024/03/04/titanic-distillers-401/
 ---

@@ -1,6 +1,6 @@
 ---
 title: THE SASSENACH
-date: 28. janvier 2021
+date: 2021-01-28
 category: ECOSSE
 url: https://www.peatdream.com/2021/01/28/the-sassenach/
 ---

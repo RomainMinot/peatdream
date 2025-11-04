@@ -33,7 +33,7 @@
 - Layout responsive
 
 #### `BlogCard.astro`
-- Card moderne pour la liste d'articles
+- Card moderne pour la liste d'dégustations
 - Support du mode "featured" (premier article)
 - Image avec effet zoom au hover
 - Métadonnées complètes
@@ -47,7 +47,7 @@
 
 ### 2. **Layouts Refondus**
 
-#### `BlogPost.astro`
+#### `TastingPost.astro`
 - Layout en 3 colonnes sur desktop
 - Colonne centrale `max-w-[65ch]` pour lisibilité optimale
 - TOC sticky sur le côté
@@ -154,13 +154,13 @@ Calculé automatiquement en comptant les mots (200 mots/minute pour le français
 Générée dynamiquement à partir des titres H2 et H3. Sticky sur desktop avec highlight de la section active.
 
 ### ✅ Navigation Article
-Liens vers les articles précédent et suivant, triés par date de publication.
+Liens vers les dégustations précédent et suivant, triés par date de publication.
 
 ### ✅ Filtrage par Catégorie
 URL: `/tastings?category=FRANCE`
 - Filtrage côté serveur
 - État persistant
-- Compteur d'articles
+- Compteur d'dégustations
 
 ### ✅ Métadonnées Riches
 - Date de publication
@@ -190,7 +190,7 @@ URL: `/tastings?category=FRANCE`
 ## 🎯 Prochaines Étapes Suggérées
 
 ### Court Terme
-- [ ] Tester sur vrais articles
+- [ ] Tester sur vrais dégustations
 - [ ] Ajuster les couleurs si besoin
 - [ ] Optimiser les images existantes
 - [ ] Ajouter un README par article
@@ -213,7 +213,7 @@ URL: `/tastings?category=FRANCE`
 
 ### À Tester
 1. **Navigation**
-   - [ ] Liens articles fonctionnent
+   - [ ] Liens dégustations fonctionnent
    - [ ] Filtrage par catégorie
    - [ ] TOC scroll to section
    - [ ] Prev/Next navigation
@@ -227,8 +227,8 @@ URL: `/tastings?category=FRANCE`
 3. **Contenus**
    - [ ] Articles avec images
    - [ ] Articles sans images
-   - [ ] Longs articles (20+ min)
-   - [ ] Courts articles (< 5 min)
+   - [ ] Longs dégustations (20+ min)
+   - [ ] Courts dégustations (< 5 min)
 
 4. **Performance**
    - [ ] Lighthouse Score
@@ -245,7 +245,7 @@ Aucun pour le moment ! 🎉
 - Tous les composants sont en Astro (pas de framework JS)
 - Styles via UnoCSS (Tailwind-like)
 - Images supportent local + URL externes
-- Compatible avec tous les articles existants
+- Compatible avec tous les dégustations existants
 - Zero breaking changes
 
 ## 🎓 Documentation

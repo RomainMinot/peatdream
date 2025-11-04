@@ -4,7 +4,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import BaseFooter from '../../components/BaseFooter.astro';
 import FallbackImage from '../../assets/blog-placeholder-1.jpg';
 import Header from '../../components/header/index.astro';
-import BlogCard from '../../components/BlogCard.astro';
+import TastingCard from '../../components/TastingCard.astro';
 import CategoryFilter from '../../components/CategoryFilter.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { calculateReadingTime, extractFirstImage } from '../../utils/readingTime';
@@ -13,26 +13,26 @@ import { calculateReadingTime, extractFirstImage } from '../../utils/readingTime
 const url = new URL(Astro.request.url);
 const currentCategory = url.searchParams.get('category');
 
-const allPosts = (await getCollection('blog'))
+const allTastings = (await getCollection('tastings'))
   .sort((a, b) => {
     const dateA = a.data.pubDate || a.data.date;
     const dateB = b.data.pubDate || b.data.date;
     return (dateB?.valueOf() || 0) - (dateA?.valueOf() || 0);
   })
-  .map((post) => ({
-    ...post,
-    readingTime: calculateReadingTime(post.body),
-    heroImage: post.data.heroImage || extractFirstImage(post.body),
+  .map((tasting) => ({
+    ...tasting,
+    readingTime: calculateReadingTime(tasting.body),
+    heroImage: tasting.data.heroImage || extractFirstImage(tasting.body),
   }));
 
-// Filter posts by category if specified
-const posts = currentCategory
-  ? allPosts.filter((post) => post.data.category === currentCategory)
-  : allPosts;
+// Filter tastings by category if specified
+const tastings = currentCategory
+  ? allTastings.filter((tasting) => tasting.data.category === currentCategory)
+  : allTastings;
 
 // Get all unique categories
 const categories = [
-  ...new Set(allPosts.map((post) => post.data.category).filter(Boolean)),
+  ...new Set(allTastings.map((tasting) => tasting.data.category).filter(Boolean)),
 ] as string[];
 ---
 
@@ -58,7 +58,7 @@ const categories = [
           }
         </p>
         <div class="mt-4 text-sm text-gray-500">
-          {posts.length} article{posts.length > 1 ? 's' : ''}
+          {tastings.length} dégustation{tastings.length > 1 ? 's' : ''}
         </div>
       </div>
     </div>
@@ -70,26 +70,28 @@ const categories = [
       )
     }
 
-    <!-- Articles Grid -->
+    <!-- Tastings Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {
-        posts.length > 0 ? (
+        tastings.length > 0 ? (
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post, index) => (
-              <BlogCard
-                title={post.data.title}
-                slug={post.id}
-                heroImage={post.heroImage}
-                date={post.data.pubDate || post.data.date}
-                category={post.data.category}
-                readingTime={post.readingTime}
+            {tastings.map((tasting, index) => (
+              <TastingCard
+                title={tasting.data.title}
+                slug={tasting.id}
+                heroImage={tasting.heroImage}
+                date={tasting.data.pubDate || tasting.data.date}
+                category={tasting.data.category}
+                readingTime={tasting.readingTime}
                 featured={index === 0}
               />
             ))}
           </div>
         ) : (
           <div class="text-center py-12">
-            <p class="text-xl text-gray-600 mb-4">Aucun article trouvé dans cette catégorie.</p>
+            <p class="text-xl text-gray-600 mb-4">
+              Aucune dégustation trouvée dans cette catégorie.
+            </p>
             <a href="/tastings" class="text-peat-600 hover:text-peat-700 font-medium">
               Voir toutes les dégustations →
             </a>

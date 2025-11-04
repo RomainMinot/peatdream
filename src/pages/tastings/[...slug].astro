@@ -1,52 +1,53 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import TastingPost from '../../layouts/TastingPost.astro';
 import { calculateReadingTime, extractFirstImage } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const tastings = await getCollection('tastings');
 
-  return posts.map((post, index) => {
-    // Get previous and next posts (sorted by date)
-    const sortedPosts = [...posts].sort((a, b) => {
+  return tastings.map((tasting) => {
+    // Get previous and next tastings (sorted by date)
+    const sortedTastings = [...tastings].sort((a, b) => {
       const dateA = a.data.pubDate || a.data.date;
       const dateB = b.data.pubDate || b.data.date;
       return (dateB?.valueOf() || 0) - (dateA?.valueOf() || 0);
     });
 
-    const currentIndex = sortedPosts.findIndex((p) => p.id === post.id);
-    const prev = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
-    const next = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+    const currentIndex = sortedTastings.findIndex((t) => t.id === tasting.id);
+    const prev =
+      currentIndex < sortedTastings.length - 1 ? sortedTastings[currentIndex + 1] : undefined;
+    const next = currentIndex > 0 ? sortedTastings[currentIndex - 1] : undefined;
 
     return {
-      params: { slug: post.id },
-      props: { post, prev, next },
+      params: { slug: tasting.id },
+      props: { tasting, prev, next },
     };
   });
 }
 
 type Props = {
-  post: CollectionEntry<'blog'>;
-  prev?: CollectionEntry<'blog'>;
-  next?: CollectionEntry<'blog'>;
+  tasting: CollectionEntry<'tastings'>;
+  prev?: CollectionEntry<'tastings'>;
+  next?: CollectionEntry<'tastings'>;
 };
 
-const { post, prev, next } = Astro.props;
-const { Content, headings, remarkPluginFrontmatter } = await render(post);
+const { tasting, prev, next } = Astro.props;
+const { Content, headings } = await render(tasting);
 
 // Calculate reading time from raw body
-const readingTime = calculateReadingTime(post.body);
+const readingTime = calculateReadingTime(tasting.body);
 
 // Try to get hero image from frontmatter or extract from content
-const heroImage = post.data.heroImage || extractFirstImage(post.body);
+const heroImage = tasting.data.heroImage || extractFirstImage(tasting.body);
 ---
 
-<BlogPost
-  {...post.data}
+<TastingPost
+  {...tasting.data}
   headings={headings}
   prev={prev}
   next={next}
   readingTime={readingTime}
   heroImage={heroImage}>
   <Content />
-</BlogPost>
+</TastingPost>

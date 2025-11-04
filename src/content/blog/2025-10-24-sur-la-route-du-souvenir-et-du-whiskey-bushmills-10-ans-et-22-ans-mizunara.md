@@ -1,6 +1,6 @@
 ---
-title: Sur la route du souvenir et du Whiskey: Bushmills 10 ans et 22 ans Mizunara
-date: 24. octobre 2025
+title: "Sur la route du souvenir et du Whiskey: Bushmills 10 ans et 22 ans Mizunara"
+date: 2025-10-24
 category: IRLANDE
 url: https://www.peatdream.com/2025/10/24/sur-la-route-du-souvenir-et-du-whiskey-bushmills-10-ans-et-22-ans-mizunara/
 ---

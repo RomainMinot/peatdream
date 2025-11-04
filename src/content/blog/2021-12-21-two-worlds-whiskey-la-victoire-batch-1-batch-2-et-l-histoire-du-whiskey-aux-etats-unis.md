@@ -1,6 +1,6 @@
 ---
-title: TWO WORLDS WHISKEY LA VICTOIRE BATCH 1 & BATCH 2 (et l'histoire du whiskey aux Etats Unis)
-date: 04. juin 2023
+title: "TWO WORLDS WHISKEY LA VICTOIRE BATCH 1 & BATCH 2 (et l'histoire du whiskey aux Etats Unis)"
+date: 2021-12-21
 category: USA
 url: https://www.peatdream.com/2021/12/21/two-worlds-la-victoire-batch-1/
 ---

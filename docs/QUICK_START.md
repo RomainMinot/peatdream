@@ -210,7 +210,7 @@ Même structure...
 
 Conclusion et liens...
 
-[Autres articles](/tastings)
+[Autres dégustations](/tastings)
 ```
 
 ## Filtrage par Catégorie
@@ -218,7 +218,7 @@ Conclusion et liens...
 ### Dans le code
 
 ```astro
-// Filtrer les articles par catégorie
+// Filtrer les dégustations par catégorie
 const scotchPosts = posts.filter(post => 
   post.data.category === 'SCOTLAND'
 );

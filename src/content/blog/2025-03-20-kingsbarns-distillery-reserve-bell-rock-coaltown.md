@@ -1,6 +1,6 @@
 ---
-title: KINGSBARNS : DISTILLERY RESERVE, BELL ROCK, COALTOWN
-date: 20. mars 2025
+title: "KINGSBARNS : DISTILLERY RESERVE, BELL ROCK, COALTOWN"
+date: 2025-03-20
 category: ECOSSE
 url: https://www.peatdream.com/2025/03/20/kingsbarns-distillery-reserve-bell-rock-coaltown/
 ---

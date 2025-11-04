@@ -1,6 +1,6 @@
 ---
 title: DEWAR'S DOUBLE DOUBLE SMALL BATCH 21 ANS
-date: 21. mai 2021
+date: 2021-05-21
 category: ECOSSE
 url: https://www.peatdream.com/2021/05/21/dewar-s-double-double-21-ans/
 ---

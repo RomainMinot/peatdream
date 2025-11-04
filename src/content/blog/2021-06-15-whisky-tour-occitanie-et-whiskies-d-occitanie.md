@@ -1,6 +1,6 @@
 ---
 title: WHISKY TOUR OCCITANIE et Whiskies d'Occitanie
-date: 15. juin 2021
+date: 2021-06-15
 category: FRANCE
 url: https://www.peatdream.com/2021/06/15/whisky-tour-occitanie-et-whiskies-d-occitanie/
 ---

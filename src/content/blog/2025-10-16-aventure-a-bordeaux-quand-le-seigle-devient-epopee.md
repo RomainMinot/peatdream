@@ -1,6 +1,6 @@
 ---
-title: AVENTURE à Bordeaux : quand le seigle devient épopée
-date: 16. octobre 2025
+title: "AVENTURE à Bordeaux : quand le seigle devient épopée"
+date: 2025-10-16
 category: FRANCE
 url: https://www.peatdream.com/2025/10/16/aventure-%C3%A0-bordeaux-quand-le-seigle-devient-%C3%A9pop%C3%A9e/
 ---

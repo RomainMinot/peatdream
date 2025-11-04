@@ -1,6 +1,6 @@
 ---
-title: TOS DISTILLERIE - ARTESIA VIEILLI EN FUT DE CHENE & ARTESIA LIMITED EDITION SHERRY
-date: 16. juin 2023
+title: "TOS DISTILLERIE - ARTESIA VIEILLI EN FUT DE CHENE & ARTESIA LIMITED EDITION SHERRY"
+date: 2023-06-16
 category: FRANCE
 url: https://www.peatdream.com/2023/06/16/tos-distillerie-artesia-vieilli-en-fut-de-chene-artesia-limited-edition-sherry/
 ---

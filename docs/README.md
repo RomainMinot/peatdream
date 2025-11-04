@@ -18,7 +18,7 @@ Guide de démarrage rapide pour commencer à utiliser le blog.
 Documentation complète du système de blog.
 
 - Architecture des composants
-- Format des articles
+- Format des dégustations
 - Fonctionnalités
 - Typographie
 - Personnalisation

@@ -1,6 +1,6 @@
 ---
 title: MARS TSUNUKI Single Malt Edition 2022
-date: 07. octobre 2022
+date: 2022-10-07
 category: JAPON
 url: https://www.peatdream.com/2022/10/07/mars-tsunuki-single-malt-edition-2022/
 ---

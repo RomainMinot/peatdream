@@ -1,6 +1,6 @@
 ---
 title: Distillerie TESSENDIER -ARLETT SINGLE MALT ORIGINAL, FINITION MIZUNARA et TOURBE
-date: 27. janvier 2023
+date: 2023-01-27
 category: FRANCE
 url: https://www.peatdream.com/2023/01/27/distillerie-tessendier-arlett-single-malt-original-tourb%C3%A9-et-finition-mizunara/
 ---

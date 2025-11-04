@@ -1,6 +1,6 @@
 ---
-title: YEUN ELEZ (WARENGHEM) JOBIC & SMALL BATCH
-date: 02. octobre 2024
+title: "YEUN ELEZ (WARENGHEM) JOBIC & SMALL BATCH"
+date: 2020-10-28
 category: FRANCE
 url: https://www.peatdream.com/2020/10/28/yeun-elez-jobic/
 ---

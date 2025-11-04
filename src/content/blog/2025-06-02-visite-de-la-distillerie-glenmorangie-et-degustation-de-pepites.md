@@ -1,6 +1,6 @@
 ---
 title: Visite de la DISTILLERIE GLENMORANGIE et dégustation de pépites
-date: 02. juin 2025
+date: 2025-06-02
 category: ECOSSE
 url: https://www.peatdream.com/2025/06/02/distillerie-glenmorangie/
 ---

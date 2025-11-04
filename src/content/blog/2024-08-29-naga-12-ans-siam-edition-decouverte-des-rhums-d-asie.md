@@ -1,6 +1,6 @@
 ---
-title: NAGA 12 ans SIAM EDITION & découverte des rhums d'Asie
-date: 29. août 2024
+title: "NAGA 12 ans SIAM EDITION & découverte des rhums d'Asie"
+date: 2024-08-29
 category: THAILANDE
 url: https://www.peatdream.com/2024/08/29/naga-12-ans-siam-edition-d%C3%A9couverte-des-rhums-d-asie/
 ---

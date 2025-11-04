@@ -1,6 +1,6 @@
 ---
-title: DISTILLERIE STAUNING - EL CLASICO & KAOS
-date: 21. février 2023
+title: "DISTILLERIE STAUNING - EL CLASICO & KAOS"
+date: 2023-02-21
 category: DANEMARK
 url: https://www.peatdream.com/2023/02/21/stauning-distillery-el-clasico-kaos/
 ---

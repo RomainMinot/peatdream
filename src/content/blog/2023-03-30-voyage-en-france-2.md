@@ -1,6 +1,6 @@
 ---
 title: VOYAGE EN FRANCE 2
-date: 30. mars 2023
+date: 2023-03-30
 category: FRANCE
 url: https://www.peatdream.com/2023/03/30/voyage-en-france-2/
 ---

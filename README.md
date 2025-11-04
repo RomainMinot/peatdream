@@ -34,18 +34,18 @@ pnpm preview
 │   ├── assets/         # Images et ressources
 │   ├── components/     # Composants réutilisables
 │   │   ├── header/    # Header du site
-│   │   ├── BlogHero.astro
-│   │   ├── BlogContent.astro
+│   │   ├── TastingHero.astro
+│   │   ├── TastingContent.astro
 │   │   ├── TableOfContents.astro
-│   │   ├── BlogNavigation.astro
-│   │   ├── BlogCard.astro
+│   │   ├── TastingNavigation.astro
+│   │   ├── TastingCard.astro
 │   │   └── CategoryFilter.astro
 │   ├── content/
-│   │   └── blog/      # Articles markdown
+│   │   └── blog/      # Dégustations markdown
 │   ├── layouts/       # Layouts Astro
-│   │   └── BlogPost.astro
+│   │   └── TastingPost.astro
 │   ├── pages/
-│   │   └── blog/      # Routes du blog
+│   │   └── tastings/  # Routes des dégustations
 │   ├── styles/        # CSS globaux
 │   └── utils/         # Fonctions utilitaires
 ├── docs/              # Documentation

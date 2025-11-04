@@ -1,6 +1,6 @@
 ---
-title: DISTILLERIE M&H - ART & CRAFT
-date: 01. avril 2025
+title: "DISTILLERIE M&H - ART & CRAFT"
+date: 2025-04-01
 category: ISRAEL
 url: https://www.peatdream.com/2025/04/01/distillerie-m-h-art-craft/
 ---

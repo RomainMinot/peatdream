@@ -1,6 +1,6 @@
 ---
 title: DISTILLERIE TEELING - TEELING SINGLE MALT, TEELING WONDERS OF WOOD Second Edition et TEELING BLACKPITTS BIG SMOKE.
-date: 30. mai 2024
+date: 2024-05-30
 category: IRLANDE
 url: https://www.peatdream.com/2024/05/30/teeling-distillerie-teeling-single-malt-teeling-wonders-of-wood-second-edition-et-teeling-blackpitts-big-smoke/
 ---

@@ -1,6 +1,6 @@
 ---
-title: PLANTERAY SINGLE CASK PARAGUAY 2019 & KYRÖ SAUNA STORIES N°1
-date: 05. décembre 2024
+title: "PLANTERAY SINGLE CASK PARAGUAY 2019 & KYRÖ SAUNA STORIES N°1"
+date: 2024-12-05
 category: FINLAND
 url: https://www.peatdream.com/2024/12/05/planteray-single-cask-paraguay-2019-kyr%C3%B6-sauna-stories-n-1/
 ---

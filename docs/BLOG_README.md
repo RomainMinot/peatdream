@@ -15,10 +15,10 @@ src/
 │   ├── BlogNavigation.astro    # Navigation précédent/suivant
 │   └── FormattedDate.astro     # Affichage des dates
 ├── layouts/
-│   └── BlogPost.astro          # Layout principal des articles
+│   └── TastingPost.astro          # Layout principal des dégustations
 ├── pages/
 │   └── blog/
-│       ├── index.astro         # Liste des articles
+│       ├── index.astro         # Liste des dégustations
 │       └── [...slug].astro     # Page article dynamique
 ├── utils/
 │   └── readingTime.ts          # Calcul du temps de lecture
@@ -26,7 +26,7 @@ src/
     └── global.css              # Styles globaux
 ```
 
-## 📝 Format des articles
+## 📝 Format des dégustations
 
 ### Frontmatter
 
@@ -69,7 +69,7 @@ Générée automatiquement à partir des titres H2 et H3, affichée en sticky su
 
 ### 4. Navigation
 
-Liens vers les articles précédent et suivant (triés par date).
+Liens vers les dégustations précédent et suivant (triés par date).
 
 ### 5. Responsive Design
 

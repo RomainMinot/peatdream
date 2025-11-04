@@ -1,6 +1,6 @@
 ---
 title: LES GRANDES DISTILLERIES PEUREUX - WHISKY GDP
-date: 21. janvier 2025
+date: 2025-01-21
 category: FRANCE
 url: https://www.peatdream.com/2025/01/21/les-grandes-distilleries-peureux-whisky-gdp/
 ---

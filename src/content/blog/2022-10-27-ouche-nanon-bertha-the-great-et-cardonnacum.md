@@ -1,6 +1,6 @@
 ---
 title: OUCHE NANON "BERTHA THE GREAT" et "CARDONNACUM"
-date: 27. octobre 2022
+date: 2022-10-27
 category: FRANCE
 url: https://www.peatdream.com/2022/10/27/ouche-nanon-bertha-the-great-et-cardonnacum/
 ---

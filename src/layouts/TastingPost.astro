@@ -3,10 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import BaseFooter from '../components/BaseFooter.astro';
 import Header from '../components/header/index.astro';
-import BlogHero from '../components/BlogHero.astro';
-import BlogContent from '../components/BlogContent.astro';
+import TastingHero from '../components/TastingHero.astro';
+import TastingContent from '../components/TastingContent.astro';
 import TableOfContents from '../components/TableOfContents.astro';
-import BlogNavigation from '../components/BlogNavigation.astro';
+import TastingNavigation from '../components/TastingNavigation.astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 interface Heading {
@@ -24,8 +24,8 @@ interface Props {
   heroImage?: any;
   category?: string;
   headings?: Heading[];
-  prev?: CollectionEntry<'blog'>;
-  next?: CollectionEntry<'blog'>;
+  prev?: CollectionEntry<'tastings'>;
+  next?: CollectionEntry<'tastings'>;
   readingTime?: number;
 }
 
@@ -59,7 +59,7 @@ const displayHeroImage = heroImage || FallbackImage;
     <Header />
 
     <!-- Hero Section -->
-    <BlogHero
+    <TastingHero
       title={title}
       date={displayDate}
       category={category}
@@ -89,13 +89,13 @@ const displayHeroImage = heroImage || FallbackImage;
                 )
               }
 
-              <BlogContent>
+              <TastingContent>
                 <slot />
-              </BlogContent>
+              </TastingContent>
 
-              <!-- Blog Navigation -->
+              <!-- Tasting Navigation -->
               <div class="mt-16">
-                <BlogNavigation prev={prev} next={next} />
+                <TastingNavigation prev={prev} next={next} />
               </div>
             </div>
           </article>

@@ -1,6 +1,6 @@
 ---
-title: RHUMERIE CHAMAREL : RHUM XO 6 ANS SINGLE CASK & XO 8ANS PEATED WHISKY CASK FINISH
-date: 01. janvier 2023
+title: 'RHUMERIE CHAMAREL : RHUM XO 6 ANS SINGLE CASK & XO 8ANS PEATED WHISKY CASK FINISH'
+date: 2023-01-01
 category: MAURICE
 url: https://www.peatdream.com/2023/01/01/rhumerie-chamarel-xo-6-ans-single-cask-xo-8ans-peated-whisky-cask-finish/
 ---
@@ -8,13 +8,13 @@ url: https://www.peatdream.com/2023/01/01/rhumerie-chamarel-xo-6-ans-single-cask
 # RHUMERIE CHAMAREL : RHUM XO 6 ANS SINGLE CASK & XO 8ANS PEATED WHISKY CASK FINISH
 
 **Date:** 01. janvier 2023  
-**Catégorie:** MAURICE  
+**Catégorie:** MAURICE
 
 [English](/voyages-de-dégustation/distillerie-de-chamarel/)
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=489x1024:format=jpg/path/s1803c7d36c31d774/image/i8022814b41d9e336/version/1672725958/image.jpg)
 
-Et non ! Mon fidèle Brad Peat ne va pas qu’en Ecosse et sur les terres whiskycoles ! Il va désormais sur les terres à canne à sucre. 
+Et non ! Mon fidèle Brad Peat ne va pas qu’en Ecosse et sur les terres whiskycoles ! Il va désormais sur les terres à canne à sucre.
 
 Je vais vous raconter une aventure qui lui est arrivée dans l’Océan Indien lors d’un séjour sur l’Ile Maurice.
 
@@ -22,11 +22,11 @@ A l’occasion des dégustations du rhum (dans la nouvelle rubrique de peatdream
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=395x10000:format=jpg/path/s1803c7d36c31d774/image/ifab67eb923cc0cef/version/1672672788/image.jpg)
 
-Nous étions à 4 (Marie, Mymy et Francky -sobriquets utilisés pour garder l'anonymat de ces baroudeurs au long court - et votre serviteur) partis à l’aube de Tamarin sur la côte sud-ouest de l’ile. Nous avions pris la direction des montagnes luxuriantes de Chamarel pour aller découvrir ses fameuses terres colorées et sa rhumerie. J’y avais rendez-vous avec Fabrice (@alchimiste14) pour une dégustation. La route était sinueuse depuis que nous avions quitté la côte, mais elle serpentait dans un décor tropical assez agréable. 
+Nous étions à 4 (Marie, Mymy et Francky -sobriquets utilisés pour garder l'anonymat de ces baroudeurs au long court - et votre serviteur) partis à l’aube de Tamarin sur la côte sud-ouest de l’ile. Nous avions pris la direction des montagnes luxuriantes de Chamarel pour aller découvrir ses fameuses terres colorées et sa rhumerie. J’y avais rendez-vous avec Fabrice (@alchimiste14) pour une dégustation. La route était sinueuse depuis que nous avions quitté la côte, mais elle serpentait dans un décor tropical assez agréable.
 
 Alors que nous approchions de notre destination, un bruit bizarre s’est fait entendre couvrant même le tambourinement du moteur du van. Non, pas ça ! Il avait traversé les continents, vécu les pires péripéties, voyagé à travers le temps ! Il ne pouvait pas... avoir crevé !?
 
-Et bien si, personne n’étant infaillible, mon bon vieux Brad Peat venait de perdre l’usage d’une de ses chaussures de baroudeur. C’est alors qu’à mon grand désarroi, je me suis souvenu qu’ayant une confiance aveugle en mon vieil ami, je ne l’avais pas doté d’une roue de secours ! 
+Et bien si, personne n’étant infaillible, mon bon vieux Brad Peat venait de perdre l’usage d’une de ses chaussures de baroudeur. C’est alors qu’à mon grand désarroi, je me suis souvenu qu’ayant une confiance aveugle en mon vieil ami, je ne l’avais pas doté d’une roue de secours !
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=322x10000:format=jpg/path/s1803c7d36c31d774/image/i71393027165965d8/version/1672730381/image.jpg)
 
@@ -36,13 +36,13 @@ Nous nous croyons seul, mais dans le champ longeant la route, nous avons aperçu
 
 L’homme se présenta, il s’appelait Anil et il se trouvait qu’il travaillait pour la rhumerie CHAMAREL. Il était en train de couper la canne qui allait servir à la fabrication du rhum. Nous avons pu ainsi découvrir à notre grand étonnement que chez Chamarel, celle-ci était entièrement coupée à la main (par lui et seulement 6 de ses collègues !).
 
-Nous lui avons fait part de nos péripéties. Il nous a dit qu’il avait remarqué depuis longtemps le bruit de mon van venant de la côte, mais surtout nous a confirmé qu’il n’allait clairement pas pouvoir nous aider avec sa machette. En revanche, il nous a dit que nous étions presque sauvés car, en coupant à travers champs, la rhumerie n’était plus très loin à l’est. 
+Nous lui avons fait part de nos péripéties. Il nous a dit qu’il avait remarqué depuis longtemps le bruit de mon van venant de la côte, mais surtout nous a confirmé qu’il n’allait clairement pas pouvoir nous aider avec sa machette. En revanche, il nous a dit que nous étions presque sauvés car, en coupant à travers champs, la rhumerie n’était plus très loin à l’est.
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=364x10000:format=jpg/path/s1803c7d36c31d774/image/i61b5a68f083e1e50/version/1672730369/image.jpg)
 
-Nous avons ainsi laissé mon pauvre Brad Peat sur le bord de la route, avons couvert nos bras (sur les conseils d’Anil car la canne à sucre fait de bons rhums mais elle a tendance à couper aussi) et sommes partis plein est (nous étions aidés en cela par la montre boussole de Francky le baroudeur et mon couteau suisse).     
+Nous avons ainsi laissé mon pauvre Brad Peat sur le bord de la route, avons couvert nos bras (sur les conseils d’Anil car la canne à sucre fait de bons rhums mais elle a tendance à couper aussi) et sommes partis plein est (nous étions aidés en cela par la montre boussole de Francky le baroudeur et mon couteau suisse).
 
-En chemin, nous avons pu admirer de loin la plaine des 7 couleurs et ses tortues géantes et la cascade de Chamarel qui plongeait du haut de ses 100 mètres. 
+En chemin, nous avons pu admirer de loin la plaine des 7 couleurs et ses tortues géantes et la cascade de Chamarel qui plongeait du haut de ses 100 mètres.
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=644x10000:format=jpg/path/s1803c7d36c31d774/image/i162365ae361c0cc8/version/1672730359/image.jpg)
 
@@ -56,11 +56,11 @@ Quand nous sommes arrivés à la distillerie sous un ciel bleu et le soleil de m
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=362x10000:format=jpg/path/s1803c7d36c31d774/image/ie6c6334e9bbd8801/version/1672730340/image.jpg)
 
-J’évoquais plus haut, l’hospitalité mauricienne, mais nous avons ici eu une magnifique démonstration. Il nous a conduit au restaurant de la rhumerie pour pouvoir reprendre des forces. Franchement, si vous allez à Maurice, je ne saurai que vous le conseiller. 
+J’évoquais plus haut, l’hospitalité mauricienne, mais nous avons ici eu une magnifique démonstration. Il nous a conduit au restaurant de la rhumerie pour pouvoir reprendre des forces. Franchement, si vous allez à Maurice, je ne saurai que vous le conseiller.
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=281x10000:format=jpg/path/s1803c7d36c31d774/image/ib094150c9cee80b0/version/1672730331/image.jpg)
 
-*Attention petit placement produit 😁*
+_Attention petit placement produit 😁_
 
 L’alchimiste : un cadre idyllique au milieu des fleurs et des oiseaux, du personnel souriant et efficace, des rhums des plus jeunes aux plus vieux à profusion, des spécialités maison (foie gras au café et au rhum double distillé, langouste, baba gorgé d’XO…) le tout arrosé de ti-punch !
 
@@ -104,7 +104,7 @@ C’est alors qu’il nous propose une première pause digestive ! Que d’effo
 
 C’est l’occasion de nous faire goûter une première salve de rhums. Le premier était blanc et issue de la double distillation (Premium Rum double distilled) afin et montre le profil aromatique de ce processus. Les autres rhums, étaient tous issues de l’alambic à colonne dans des versions soit vieillies 18 mois en fûts (Gold), soit aromatisés à la vanille ou aux épices. Ca a été également l’occasion de découvrir les liqueurs de rhum de la maison.
 
-Quelle entrée en matière sous le nez expert d’un Jehko vert fluo ! 
+Quelle entrée en matière sous le nez expert d’un Jehko vert fluo !
 
 [![](https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s1803c7d36c31d774/image/i836192820e8dd4c1/version/1672669693/image.jpg)](javascript:)
 
@@ -120,7 +120,7 @@ Mais Fabrice ne nous avait pas tout montré, et à peine le temps de nous remett
 
 [![](https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s1803c7d36c31d774/image/i1f58610420663ea4/version/1672669862/image.jpg)](javascript:)
 
-Là, devant des centaines de fûts de chêne neuf, français et américains, mais aussi des fûts de chêne ayant contenus différents types d’alcool (cognac, sherry PX et Oloroso, Moscatel, Sauternes… et même whisky tourbé ou non) ou encore de foudres, il nous avait dressé une table de roi. 
+Là, devant des centaines de fûts de chêne neuf, français et américains, mais aussi des fûts de chêne ayant contenus différents types d’alcool (cognac, sherry PX et Oloroso, Moscatel, Sauternes… et même whisky tourbé ou non) ou encore de foudres, il nous avait dressé une table de roi.
 
 [![](https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s1803c7d36c31d774/image/i800adf8f0c1f8c22/version/1672671565/image.jpg)](javascript:)
 
@@ -138,11 +138,11 @@ Face à nous, nous pouvions découvrir les versions vieillies des rhums essentie
 
 D’ailleurs assez de palabres, parlons un peu dégustation.
 
-Celle que je vous propose aujourd’hui a pour but de montrer l’impact d’un vieillissement « long » (compte tenu du niveau de part des anges tropicale) de 6 ans (XO) et surtout de l’expérience d’un finish en fut de whisky. 
+Celle que je vous propose aujourd’hui a pour but de montrer l’impact d’un vieillissement « long » (compte tenu du niveau de part des anges tropicale) de 6 ans (XO) et surtout de l’expérience d’un finish en fut de whisky.
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=246x10000:format=jpg/path/s1803c7d36c31d774/image/i400efa685f729b49/version/1672730224/image.jpg)
 
-* * *
+---
 
 ### CHAMAREL - RHUM - XO – SINGLE CASK 2014 - 6 ANS
 
@@ -172,7 +172,7 @@ Mais rapidement des notes vanillées viennent couvrir le palais alors que des no
 
 **Le verre vide** est un mélange de fruits exotiques (mangues et ananas) et de notes boisées de santal.
 
-* * *
+---
 
 ### RHUM - XO - PEATED WHISKY CASK FINISH - 8 ANS
 
@@ -198,11 +198,11 @@ Il entre en douceur en bouche, avant de lâcher des notes presque médicinales e
 
 **Et quand on l’avale**, on va ressentir clairement les effluves de fumées et de bois brulé.
 
-**Le verre vide** aura des notes plus boisées que le précédent et une pointe de fumée froide.   
+**Le verre vide** aura des notes plus boisées que le précédent et une pointe de fumée froide.
 
 Après une telle dégustation on ne peut que garder un bon souvenir de la rhumerie de Chamarel et de tous les distillats qu’elle propose.
 
-* * *
+---
 
 Pour en finir avec notre aventure, nous avons à regret pris congé de notre hôte Fabrice (@alchimiste14) et nous nous apprêtions à quitter cet endroit idyllique quand nous nous sommes remémoré notre mésaventure matinale. C’est bien beau tout cela mais il manquait toujours un pneu à mon van.
 
@@ -214,11 +214,11 @@ C’était à n’y rien comprendre, comment avait-il fait pour venir jusqu’ic
 
 Une chose est certaine, c’est que cette première dégustation de rhum sur cette page a clairement donné envie d’en découvrir d’autres…
 
-Dans nos latitudes, si vous souhaitez découvrir les rhums de Chamarel, n’hésitez pas à aller faire un tour sur le site de [DUGAS CLUB EXPERT](https://www.dugasclubexpert.fr/nos-marques/chamarel.html "https://www.dugasclubexpert.fr/nos-marques/chamarel.html"), vous en trouverez un bon échantillon (les bouteilles seront peut-être un peu différentes mais leurs contenus seront bien les mêmes !!).
+Dans nos latitudes, si vous souhaitez découvrir les rhums de Chamarel, n’hésitez pas à aller faire un tour sur le site de [DUGAS CLUB EXPERT](https://www.dugasclubexpert.fr/nos-marques/chamarel.html 'https://www.dugasclubexpert.fr/nos-marques/chamarel.html'), vous en trouverez un bon échantillon (les bouteilles seront peut-être un peu différentes mais leurs contenus seront bien les mêmes !!).
 
 Et puis si vous allez à Maurice, n'hésitez pas aller voir Fabrice et ses collègues de ma part et d'aller manger à l'Achimiste ! toutes les info sont sur [The Rhumerie de Chamarel](https://www.rhumeriedechamarel.com/fr/)
 
-Vous pouvez également retrouver l’[intégralité des photos de la distillerie ici !](/voyage-en-photos-dans-le-monde-des-distilleries/photos-chamarel/ "Photos Chamarel")
+Vous pouvez également retrouver l’[intégralité des photos de la distillerie ici !](/voyage-en-photos-dans-le-monde-des-distilleries/photos-chamarel/ 'Photos Chamarel')
 
 ![](https://image.jimcdn.com/app/cms/image/transf/dimension=438x10000:format=jpg/path/s1803c7d36c31d774/image/if0cd6ab39e55d911/version/1672730048/image.jpg)
 

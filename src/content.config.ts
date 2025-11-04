@@ -1,8 +1,9 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const blog = defineCollection({
+const tastings = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
+  // Note: Physical directory stays as 'blog' for backward compatibility
   loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
@@ -20,4 +21,4 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+export const collections = { tastings };
