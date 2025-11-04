@@ -25,7 +25,7 @@ const allTastings = (await getCollection('tastings'))
     heroImage: tasting.data.heroImage || extractFirstImage(tasting.body),
   }));
 
-// Filter tastings by category if specified
+// Filter server-side based on category from URL
 const tastings = currentCategory
   ? allTastings.filter((tasting) => tasting.data.category === currentCategory)
   : allTastings;
@@ -40,7 +40,7 @@ const allCategories = allTastings
 <html lang="fr">
   <head>
     <BaseHead
-      title={'Tastings - ' + SITE_TITLE}
+      title={'Dégustations - ' + SITE_TITLE}
       description={SITE_DESCRIPTION}
       image={FallbackImage}
     />
@@ -51,14 +51,14 @@ const allCategories = allTastings
     <!-- Page Header -->
     <div class="pt-32 pb-12 bg-gradient-to-b from-accent-50 to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-accent mb-4">
+        <h1 id="page-title" class="text-4xl md:text-5xl font-bold text-accent mb-4">
           {currentCategory ? `Dégustations · ${currentCategory}` : 'Toutes les dégustations'}
         </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p id="page-description" class="text-lg text-gray-600 max-w-2xl mx-auto">
           {
             currentCategory
-              ? `Découvrez nos dégustations et voyages en ${currentCategory}`
-              : 'Découvrez nos dégustations et voyages autour du whisky et des spiritueux'
+              ? `Explorez nos dégustations et voyages en ${currentCategory}`
+              : 'Découvrez nos dégustations et voyages autour du whisky et des spiritueux du monde entier'
           }
         </p>
         <div
@@ -71,7 +71,7 @@ const allCategories = allTastings
               d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
             </path>
           </svg>
-          <span class="text-sm font-medium text-gray-700">
+          <span id="tasting-count" class="text-sm font-medium text-gray-700">
             {tastings.length} dégustation{tastings.length > 1 ? 's' : ''}
           </span>
         </div>
@@ -87,33 +87,125 @@ const allCategories = allTastings
 
     <!-- Tastings Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {
-        tastings.length > 0 ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tastings.map((tasting, index) => (
-              <TastingCard
-                title={tasting.data.title}
-                slug={tasting.id}
-                heroImage={tasting.heroImage}
-                date={tasting.data.pubDate || tasting.data.date}
-                category={tasting.data.category}
-                readingTime={tasting.readingTime}
-                featured={index === 0}
-              />
-            ))}
-          </div>
-        ) : (
-          <div class="text-center py-12">
-            <p class="text-xl text-gray-600 mb-4">
-              Aucune dégustation trouvée dans cette catégorie.
-            </p>
-            <a href="/tastings" class="text-peat-600 hover:text-peat-700 font-medium">
-              Voir toutes les dégustations →
-            </a>
-          </div>
-        )
-      }
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tastings-grid">
+        {
+          tastings.map((tasting, index) => (
+            <TastingCard
+              title={tasting.data.title}
+              slug={tasting.id}
+              heroImage={tasting.heroImage}
+              date={tasting.data.pubDate || tasting.data.date}
+              category={tasting.data.category}
+              readingTime={tasting.readingTime}
+              featured={index === 0}
+            />
+          ))
+        }
+      </div>
+      <div id="no-results" class="text-center py-12 hidden">
+        <p class="text-xl text-gray-600 mb-4">Aucune dégustation trouvée dans cette catégorie.</p>
+      </div>
     </main>
+
+    <script>
+      // Client-side filtering logic
+      function filterTastings(category: string) {
+        const cards = document.querySelectorAll('.tasting-card');
+        const noResults = document.getElementById('no-results');
+        const pageTitle = document.getElementById('page-title');
+        const pageDescription = document.getElementById('page-description');
+        const tastingCount = document.getElementById('tasting-count');
+
+        let visibleCount = 0;
+        let firstVisibleCard: HTMLElement | null = null;
+
+        // First pass: show/hide cards and find first visible
+        cards.forEach((card) => {
+          const cardCategory = (card as HTMLElement).getAttribute('data-category');
+
+          if (category === 'all' || cardCategory === category) {
+            (card as HTMLElement).style.display = '';
+            if (!firstVisibleCard) {
+              firstVisibleCard = card as HTMLElement;
+            }
+            visibleCount++;
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+
+        // Second pass: update featured status
+        cards.forEach((card) => {
+          const cardElement = card as HTMLElement;
+          const heroImage = cardElement.querySelector('.card-hero-image');
+          const titleElement = cardElement.querySelector('.card-title');
+
+          if (card === firstVisibleCard) {
+            // Make this card featured (full width)
+            cardElement.classList.add('col-span-full');
+
+            // Update hero image size
+            if (heroImage) {
+              heroImage.classList.remove('h-[250px]');
+              heroImage.classList.add('h-[400px]', 'md:h-[500px]');
+            }
+
+            // Update title size
+            if (titleElement) {
+              titleElement.classList.remove('text-xl', 'md:text-2xl');
+              titleElement.classList.add('text-2xl', 'md:text-4xl');
+            }
+          } else {
+            // Make this card normal size
+            cardElement.classList.remove('col-span-full');
+
+            // Update hero image size
+            if (heroImage) {
+              heroImage.classList.remove('h-[400px]', 'md:h-[500px]');
+              heroImage.classList.add('h-[250px]');
+            }
+
+            // Update title size
+            if (titleElement) {
+              titleElement.classList.remove('text-2xl', 'md:text-4xl');
+              titleElement.classList.add('text-xl', 'md:text-2xl');
+            }
+          }
+        });
+
+        // Update UI text
+        if (category === 'all') {
+          pageTitle!.textContent = 'Toutes les dégustations';
+          pageDescription!.textContent =
+            'Découvrez nos dégustations et voyages autour du whisky et des spiritueux';
+        } else {
+          pageTitle!.textContent = `Dégustations · ${category}`;
+          pageDescription!.textContent = `Découvrez nos dégustations et voyages en ${category}`;
+        }
+
+        // Update count
+        tastingCount!.textContent = `${visibleCount} dégustation${visibleCount > 1 ? 's' : ''}`;
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults?.classList.remove('hidden');
+        } else {
+          noResults?.classList.add('hidden');
+        }
+      }
+
+      // Expose the function globally
+      (window as any).filterTastings = filterTastings;
+
+      // Apply filter on page load if URL has category
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        if (category) {
+          filterTastings(category);
+        }
+      });
+    </script>
 
     <BaseFooter />
   </body>

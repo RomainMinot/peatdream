@@ -5,7 +5,8 @@ import Logo from '../../assets/logo.svg';
 ---
 
 <header
-  class="fixed w-[98.5vw] top-2 left-1/2 -translate-x-1/2 bg-accent-50 shadow-accent-500/30 shadow-xs border border-accent-500/10 rounded-2xl z-50">
+  id="main-header"
+  class="fixed w-[98.5vw] top-2 left-0 right-0 mx-auto bg-accent-50 shadow-accent-500/30 shadow-xs border border-accent-500/10 rounded-2xl z-50 transition-transform duration-300">
   <nav class="p-x-7 p-y-5 flex items-center justify-between">
     <a href="/" aria-label={SITE_TITLE}>
       <Logo width={125} />
@@ -21,3 +22,42 @@ import Logo from '../../assets/logo.svg';
     </button>
   </nav>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateHeaderVisibility = () => {
+      const currentScrollY = window.scrollY;
+
+      // Si on est en haut de la page (moins de 100px), toujours afficher
+      if (currentScrollY < 100) {
+        header.style.transform = 'translateY(0)';
+      }
+      // Si on scroll vers le bas après 100px, cacher en haut
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        header.style.transform = 'translateY(-150%)';
+      }
+      // Si on scroll vers le haut, faire descendre
+      else if (currentScrollY < lastScrollY) {
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeaderVisibility);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+  });
+</script>

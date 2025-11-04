@@ -17,16 +17,19 @@ const { title, slug, heroImage, date, category, readingTime, featured = false } 
 ---
 
 <article
-  class={`group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-2xl ${
+  data-category={category || 'uncategorized'}
+  class={`tasting-card group relative overflow-hidden rounded-xl hover:shadow-2xl ${
     featured ? 'col-span-full' : ''
-  }`}>
+  }`}
+  style="transition: all 0.3s ease;">
   <a href={`/tastings/${slug}/`} class="block">
     {
       heroImage && (
         <div
-          class={`relative overflow-hidden bg-accent-100 ${
+          class={`card-hero-image relative overflow-hidden bg-accent-100 ${
             featured ? 'h-[400px] md:h-[500px]' : 'h-[250px]'
-          }`}>
+          }`}
+          style="transition: height 0.3s ease;">
           {typeof heroImage === 'string' ? (
             <img
               src={heroImage}
@@ -57,9 +60,11 @@ const { title, slug, heroImage, date, category, readingTime, featured = false } 
       }
 
       <h3
-        class={`font-bold mb-2 transition-colors ${
+        class={`card-title font-bold mb-2 transition-all line-clamp-3 ${
           featured ? 'text-2xl md:text-4xl' : 'text-xl md:text-2xl'
-        } ${heroImage ? 'text-white' : 'text-accent group-hover:text-peat-600'}`}>
+        } ${heroImage ? 'text-white' : 'text-accent group-hover:text-peat-600'}`}
+        style={`${heroImage ? 'text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);' : ''} transition: font-size 0.3s ease;`}
+        title={title}>
         {title}
       </h3>
 

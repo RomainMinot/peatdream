@@ -107,6 +107,85 @@ const displayHeroImage = heroImage || FallbackImage;
     </div>
 
     <BaseFooter />
+
+    <script>
+      // Synchronize back button and TOC position with header visibility
+      document.addEventListener('DOMContentLoaded', () => {
+        const backButton = document.getElementById('back-button');
+        const tocNav = document.getElementById('toc-nav');
+
+        if (!backButton && !tocNav) return;
+
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        let isHeaderHidden = false;
+
+        const updatePositions = () => {
+          const currentScrollY = window.scrollY;
+
+          // Determine if header should be hidden (same logic as header component)
+          let shouldHideHeader = false;
+
+          if (currentScrollY < 100) {
+            shouldHideHeader = false; // Always show when at top
+          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            shouldHideHeader = true; // Hide when scrolling down after 100px
+          } else if (currentScrollY < lastScrollY) {
+            shouldHideHeader = false; // Show when scrolling up
+          }
+
+          // Only update if state changed
+          if (shouldHideHeader !== isHeaderHidden) {
+            isHeaderHidden = shouldHideHeader;
+
+            if (isHeaderHidden) {
+              // Header is hidden, move elements up
+              // Check if small screen or larger
+              const isSmallScreen = window.innerWidth < 640;
+
+              if (backButton) {
+                backButton.style.top = isSmallScreen ? '1rem' : '1.5rem'; // top-4 or top-6
+              }
+              if (tocNav) {
+                tocNav.style.top = '2rem'; // top-8
+              }
+            } else {
+              // Header is visible, restore original position
+              if (backButton) {
+                backButton.style.top = ''; // Reset to original top-24/sm:top-28
+              }
+              if (tocNav) {
+                tocNav.style.top = ''; // Reset to original top-28
+              }
+            }
+          }
+
+          lastScrollY = currentScrollY;
+          ticking = false;
+        };
+
+        const requestUpdate = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updatePositions);
+            ticking = true;
+          }
+        };
+
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+
+        // Handle window resize to update positions
+        window.addEventListener(
+          'resize',
+          () => {
+            if (isHeaderHidden && backButton) {
+              const isSmallScreen = window.innerWidth < 640;
+              backButton.style.top = isSmallScreen ? '1rem' : '1.5rem';
+            }
+          },
+          { passive: true },
+        );
+      });
+    </script>
   </body>
 </html>
 

@@ -77,26 +77,121 @@ const uniqueCategories = Object.keys(categoryCounts).sort();
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const categoryLinks = document.querySelectorAll('#category-filters a');
+    const clearFilterBtn = document.getElementById('clear-filter');
 
-    // Add loading indicator on click for visual feedback
+    // Ensure correct visual state on page load based on URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentCategoryFromUrl = urlParams.get('category');
+    
     categoryLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        // Add subtle loading state
-        link.classList.add('opacity-75');
+      const linkCategory = (link as HTMLElement).getAttribute('data-category');
+      const shouldBeActive = 
+        (currentCategoryFromUrl === null && linkCategory === 'all') ||
+        (currentCategoryFromUrl === linkCategory);
+      
+      if (shouldBeActive) {
+        link.classList.remove(
+          'bg-white',
+          'text-gray-700',
+          'hover:bg-accent-100',
+          'border',
+          'border-accent-200',
+          'hover:border-peat-300',
+        );
+        link.classList.add('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+      } else {
+        link.classList.remove('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+        link.classList.add(
+          'bg-white',
+          'text-gray-700',
+          'hover:bg-accent-100',
+          'border',
+          'border-accent-200',
+          'hover:border-peat-300',
+        );
+      }
+    });
+
+    // Handle category filter clicks
+    categoryLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const category = (link as HTMLElement).getAttribute('data-category');
+        if (!category) return;
+
+        // Update active state
+        categoryLinks.forEach((l) => {
+          l.classList.remove('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+          l.classList.add(
+            'bg-white',
+            'text-gray-700',
+            'hover:bg-accent-100',
+            'border',
+            'border-accent-200',
+            'hover:border-peat-300',
+          );
+        });
+
+        link.classList.remove(
+          'bg-white',
+          'text-gray-700',
+          'hover:bg-accent-100',
+          'border',
+          'border-accent-200',
+          'hover:border-peat-300',
+        );
+        link.classList.add('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+
+        // Filter tastings
+        if ((window as any).filterTastings) {
+          (window as any).filterTastings(category);
+        }
+
+        // Update URL without reloading
+        const newUrl =
+          category === 'all' ? '/tastings' : `/tastings?category=${encodeURIComponent(category)}`;
+        window.history.pushState({}, '', newUrl);
       });
     });
 
-    // Smooth scroll to content after filter change
-    const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get('category');
-    if (category) {
-      // Small delay to ensure page is loaded
-      setTimeout(() => {
-        const main = document.querySelector('main');
-        if (main) {
-          main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Handle clear filter button
+    if (clearFilterBtn) {
+      clearFilterBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Reset to "all"
+        categoryLinks.forEach((l) => {
+          const cat = (l as HTMLElement).getAttribute('data-category');
+          l.classList.remove('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+          l.classList.add(
+            'bg-white',
+            'text-gray-700',
+            'hover:bg-accent-100',
+            'border',
+            'border-accent-200',
+            'hover:border-peat-300',
+          );
+
+          if (cat === 'all') {
+            l.classList.remove(
+              'bg-white',
+              'text-gray-700',
+              'hover:bg-accent-100',
+              'border',
+              'border-accent-200',
+              'hover:border-peat-300',
+            );
+            l.classList.add('bg-peat-500', 'text-white', 'font-semibold', 'shadow-sm');
+          }
+        });
+
+        if ((window as any).filterTastings) {
+          (window as any).filterTastings('all');
         }
-      }, 100);
+
+        window.history.pushState({}, '', '/tastings');
+      });
     }
   });
 </script>

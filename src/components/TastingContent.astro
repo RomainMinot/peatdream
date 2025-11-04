@@ -45,6 +45,33 @@ const { class: className } = Astro.props;
   /* Liens stylisés */
   .prose :global(a) {
     @apply text-peat-600 hover:text-peat-700 underline decoration-peat-300 hover:decoration-peat-600 decoration-2 underline-offset-2 transition-all duration-200;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Liens contenant des images */
+  .prose :global(a:has(img)) {
+    @apply block my-8 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .prose :global(a:has(img)::after) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .prose :global(a:has(img):hover::after) {
+    opacity: 1;
+  }
+  
+  .prose :global(a:has(img):hover img) {
+    transform: scale(1.03);
   }
 
   /* Texte en gras */
@@ -110,9 +137,29 @@ const { class: className } = Astro.props;
 
   /* Images optimisées et responsive */
   .prose :global(img) {
-    @apply rounded-lg shadow-md hover:shadow-xl my-8 mx-auto max-w-full h-auto transition-shadow duration-300;
+    @apply rounded-lg shadow-md my-8 mx-auto max-w-full h-auto;
     max-height: 700px;
     object-fit: contain;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  /* Images dans des liens */
+  .prose :global(a img) {
+    @apply shadow-none;
+    margin: 0;
+  }
+  
+  /* Images seules (pas dans des liens) */
+  .prose :global(img:not(a img)) {
+    @apply hover:shadow-xl;
+    cursor: default;
+  }
+  
+  /* Conteneurs d'images (liens ou paragraphes) */
+  .prose :global(p:has(img)) {
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .prose :global(figure) {
