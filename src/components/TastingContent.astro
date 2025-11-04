@@ -13,87 +13,152 @@ const { class: className } = Astro.props;
 <style>
   .prose {
     color: rgb(var(--black));
+    line-height: 1.75;
   }
 
+  /* Titres avec espacement optimisé */
   .prose :global(h1) {
-    @apply text-4xl md:text-5xl font-bold mb-6 mt-12 text-accent;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 mt-12 text-accent leading-tight;
+    scroll-margin-top: 8rem;
   }
 
   .prose :global(h2) {
-    @apply text-2xl md:text-3xl font-semibold mb-4 mt-12 text-accent border-b-2 border-peat pb-2;
+    @apply text-2xl sm:text-3xl font-semibold mb-4 mt-12 pt-4 text-accent border-b border-peat-400 pb-2 leading-tight;
+    scroll-margin-top: 8rem;
   }
 
   .prose :global(h3) {
-    @apply text-xl md:text-2xl font-semibold mb-3 mt-8 text-accent-700;
+    @apply text-xl sm:text-2xl font-semibold mb-3 mt-10 text-accent-700 leading-snug;
+    scroll-margin-top: 8rem;
   }
 
   .prose :global(h4) {
-    @apply text-lg md:text-xl font-semibold mb-2 mt-6 text-accent-800;
+    @apply text-lg sm:text-xl font-semibold mb-2 mt-8 text-accent-800 leading-snug;
   }
 
+  /* Paragraphes avec lecture optimale */
   .prose :global(p) {
-    @apply text-base md:text-lg leading-relaxed mb-4 text-gray-700;
+    @apply text-base sm:text-lg leading-relaxed mb-5 text-gray-700;
+    max-width: 70ch;
   }
 
+  /* Liens stylisés */
   .prose :global(a) {
-    @apply text-peat-600 hover:text-peat-700 underline decoration-peat-300 hover:decoration-peat-500 transition-colors;
+    @apply text-peat-600 hover:text-peat-700 underline decoration-peat-300 hover:decoration-peat-600 decoration-2 underline-offset-2 transition-all duration-200;
   }
 
-  .prose :global(strong) {
-    @apply font-semibold text-accent-900;
+  /* Texte en gras */
+  .prose :global(strong),
+  .prose :global(b) {
+    @apply font-bold text-accent-900;
   }
 
+  /* Italique */
+  .prose :global(em),
+  .prose :global(i) {
+    @apply italic text-gray-800;
+  }
+
+  /* Listes */
   .prose :global(ul),
   .prose :global(ol) {
-    @apply my-6 space-y-2;
+    @apply my-8 space-y-3 pl-6;
   }
 
   .prose :global(li) {
-    @apply text-base md:text-lg leading-relaxed text-gray-700;
+    @apply text-base sm:text-lg md:text-xl leading-relaxed text-gray-700;
   }
 
   .prose :global(ul > li) {
-    @apply pl-1;
+    @apply pl-2 relative;
   }
 
+  .prose :global(ul > li::marker) {
+    @apply text-peat-600;
+  }
+
+  .prose :global(ol > li) {
+    @apply pl-2;
+  }
+
+  .prose :global(ol > li::marker) {
+    @apply text-peat-600 font-semibold;
+  }
+
+  /* Citations */
   .prose :global(blockquote) {
-    @apply border-l-4 border-peat pl-4 py-2 my-6 italic text-gray-600 bg-accent-50 rounded-r;
+    @apply border-l-4 border-peat-500 pl-6 py-4 my-8 italic text-gray-700 bg-peat-50 rounded-r-lg;
   }
 
+  .prose :global(blockquote p) {
+    @apply mb-0;
+  }
+
+  /* Code inline */
   .prose :global(code) {
-    @apply bg-accent-100 text-accent-800 px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-accent-100 text-accent-900 px-2 py-1 rounded text-sm font-mono;
   }
 
+  /* Blocs de code */
   .prose :global(pre) {
-    @apply bg-accent-900 text-white p-4 rounded-lg overflow-x-auto my-6;
+    @apply bg-accent-900 text-white p-4 sm:p-6 rounded-lg overflow-x-auto my-8 text-sm sm:text-base;
   }
 
   .prose :global(pre code) {
     @apply bg-transparent text-white p-0;
   }
 
+  /* Images optimisées et responsive */
   .prose :global(img) {
-    @apply rounded-lg shadow-lg my-8 mx-auto;
+    @apply rounded-lg shadow-md hover:shadow-xl my-8 mx-auto max-w-full h-auto transition-shadow duration-300;
+    max-height: 700px;
+    object-fit: contain;
   }
 
+  .prose :global(figure) {
+    @apply my-8;
+  }
+
+  .prose :global(figcaption) {
+    @apply text-center text-sm text-gray-600 mt-3 italic;
+  }
+
+  /* Séparateurs élégants */
   .prose :global(hr) {
-    @apply my-12 border-t-2 border-accent-200;
+    @apply my-10 border-t border-accent-300;
   }
 
+  /* Tableaux responsifs */
   .prose :global(table) {
-    @apply w-full my-6 border-collapse;
+    @apply w-full my-8 border-collapse text-sm sm:text-base;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .prose :global(thead) {
+    @apply bg-accent-100;
   }
 
   .prose :global(th) {
-    @apply bg-accent-100 font-semibold p-3 text-left border border-accent-300;
+    @apply font-semibold p-3 sm:p-4 text-left border border-accent-300 text-accent-900;
   }
 
   .prose :global(td) {
-    @apply p-3 border border-accent-200;
+    @apply p-3 sm:p-4 border border-accent-200 text-gray-700;
   }
 
-  /* Sections de dégustation spéciales */
-  .prose :global(h3:has(+ p:contains('dégustation'))) {
-    @apply bg-peat-50 p-4 rounded-lg border-l-4 border-peat;
+  .prose :global(tr:nth-child(even)) {
+    @apply bg-accent-50;
+  }
+
+  /* Responsive : ajustements mobiles */
+  @media (max-width: 640px) {
+    .prose {
+      font-size: 16px;
+    }
+
+    .prose :global(img) {
+      max-height: 400px;
+    }
   }
 </style>

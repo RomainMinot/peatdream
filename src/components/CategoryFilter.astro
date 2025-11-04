@@ -6,33 +6,67 @@ interface Props {
 
 const { categories, currentCategory } = Astro.props;
 
-// Count posts per category would be done in the parent
-const uniqueCategories = [...new Set(categories)].sort();
+// Count posts per category
+const categoryCounts = categories.reduce(
+  (acc, cat) => {
+    if (cat) {
+      acc[cat] = (acc[cat] || 0) + 1;
+    }
+    return acc;
+  },
+  {} as Record<string, number>,
+);
+
+const uniqueCategories = Object.keys(categoryCounts).sort();
 ---
 
 <div class="w-full bg-accent-50 border-y border-accent-200 py-6 mb-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-lg font-semibold text-accent mb-4">Filtrer par catégorie</h2>
-    <div class="flex flex-wrap gap-3">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-lg font-semibold text-accent">Filtrer par région</h2>
+      {
+        currentCategory && (
+          <a
+            href="/tastings"
+            id="clear-filter"
+            class="text-sm text-peat-600 hover:text-peat-700 font-medium flex items-center gap-1 transition-colors">
+            <span>Effacer le filtre</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </a>
+        )
+      }
+    </div>
+    <div class="flex flex-wrap gap-3" id="category-filters">
       <a
         href="/tastings"
-        class={`px-4 py-2 rounded-full transition-all ${
+        data-category="all"
+        class={`px-4 py-2 rounded-full transition-all inline-flex items-center gap-2 ${
           !currentCategory
-            ? 'bg-peat text-accent-900 font-semibold'
-            : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200'
+            ? 'bg-peat-500 text-white font-semibold shadow-sm'
+            : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200 hover:border-peat-300'
         }`}>
-        Tous
+        <span>Tous</span>
+        <span class="text-xs opacity-75">({categories.length})</span>
       </a>
       {
         uniqueCategories.map((category) => (
           <a
             href={`/tastings?category=${encodeURIComponent(category)}`}
-            class={`px-4 py-2 rounded-full transition-all ${
+            data-category={category}
+            class={`px-4 py-2 rounded-full transition-all inline-flex items-center gap-2 ${
               currentCategory === category
-                ? 'bg-peat text-accent-900 font-semibold'
-                : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200'
+                ? 'bg-peat-500 text-white font-semibold shadow-sm'
+                : 'bg-white text-gray-700 hover:bg-accent-100 border border-accent-200 hover:border-peat-300'
             }`}>
-            {category}
+            <span>{category}</span>
+            <span class="text-xs opacity-75">({categoryCounts[category]})</span>
           </a>
         ))
       }
@@ -41,15 +75,28 @@ const uniqueCategories = [...new Set(categories)].sort();
 </div>
 
 <script>
-  // Handle category filtering with smooth transitions
   document.addEventListener('DOMContentLoaded', () => {
-    const categoryLinks = document.querySelectorAll('a[href*="category="]');
+    const categoryLinks = document.querySelectorAll('#category-filters a');
 
+    // Add loading indicator on click for visual feedback
     categoryLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        // Add loading state
-        link.classList.add('opacity-50', 'pointer-events-none');
+      link.addEventListener('click', () => {
+        // Add subtle loading state
+        link.classList.add('opacity-75');
       });
     });
+
+    // Smooth scroll to content after filter change
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    if (category) {
+      // Small delay to ensure page is loaded
+      setTimeout(() => {
+        const main = document.querySelector('main');
+        if (main) {
+          main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   });
 </script>

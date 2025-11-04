@@ -34,6 +34,23 @@ const { title, date, category, heroImage, readingTime } = Astro.props;
     )
   }
 
+  <!-- Back Button Icon - Fixed Position -->
+  <div class="fixed top-20 left-4 sm:top-24 sm:left-6 md:left-8 z-50">
+    <a
+      href="/tastings"
+      class="group inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white hover:bg-peat-500 text-gray-800 hover:text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-accent-200 hover:border-peat-600"
+      aria-label="Retour aux dégustations">
+      <svg
+        class="w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:-translate-x-1 group-hover:scale-110"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+    </a>
+  </div>
+
   <div class="relative h-full flex items-end">
     <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
       {

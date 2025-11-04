@@ -18,14 +18,31 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
 {
   filteredHeadings.length > 0 && (
     <aside class="hidden xl:block">
-      <nav class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
-        <h2 class="text-lg font-semibold text-accent mb-4">Sur cette page</h2>
-        <ul class="space-y-2 text-sm border-l-2 border-accent-200">
+      <nav class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+        <div class="mb-4 pb-3 border-b border-accent-200">
+          <h2 class="text-lg font-semibold text-accent flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-peat-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+            Sur cette page
+          </h2>
+        </div>
+        <ul class="space-y-1 text-sm relative">
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-accent-200" />
           {filteredHeadings.map((heading) => (
             <li class={heading.depth === 2 ? 'ml-0' : 'ml-4'}>
               <a
                 href={`#${heading.slug}`}
-                class={`block py-1 px-3 text-gray-600 hover:text-peat-600 hover:bg-peat-50 rounded transition-colors ${
+                class={`block py-2 px-3 pl-4 text-gray-600 hover:text-peat-600 hover:bg-peat-50 rounded-r transition-all duration-200 relative ${
                   heading.depth === 2 ? 'font-medium' : ''
                 }`}>
                 {heading.text}
@@ -43,112 +60,157 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
     const toc = document.querySelector('aside nav');
     if (!toc) return;
 
+    // Get all headings from the article
     const headings = Array.from(
       document.querySelectorAll('article h2[id], article h3[id]'),
     ) as HTMLElement[];
 
     if (headings.length === 0) return;
 
+    // Create a map of TOC links
     const tocLinks = new Map<string, HTMLAnchorElement>();
     toc.querySelectorAll('a[href^="#"]').forEach((link) => {
       const id = link.getAttribute('href')?.slice(1);
       if (id) tocLinks.set(id, link as HTMLAnchorElement);
     });
 
-    // Track which headings are currently visible
-    const visibleHeadings = new Set<string>();
+    let activeId: string | null = null;
+    let ticking = false;
 
-    function updateActiveHeading() {
-      // Find the topmost visible heading
-      let activeId: string | null = null;
+    // Offset for the fixed header (in pixels)
+    const HEADER_OFFSET = 140;
 
-      // Find first visible heading in document order
+    /**
+     * Find which heading is currently active based on scroll position
+     */
+    function findActiveHeading(): string | null {
+      // Get current scroll position
+      const scrollY = window.scrollY;
+      const viewportMiddle = scrollY + HEADER_OFFSET + 50;
+
+      // Find the heading that is closest to the top of the viewport
+      // but still above the middle of the viewport
+      let currentId: string | null = null;
+      let closestDistance = Infinity;
+
       for (const heading of headings) {
-        if (visibleHeadings.has(heading.id)) {
-          activeId = heading.id;
-          break;
+        const rect = heading.getBoundingClientRect();
+        const headingTop = rect.top + scrollY;
+
+        // Distance from heading to our reference point
+        const distance = Math.abs(headingTop - viewportMiddle);
+
+        // If this heading is above our reference point and closer than previous
+        if (headingTop <= viewportMiddle && distance < closestDistance) {
+          closestDistance = distance;
+          currentId = heading.id;
         }
       }
 
-      // Update TOC highlight
-      tocLinks.forEach((link, id) => {
-        if (id === activeId) {
-          link.classList.add('text-peat-600', 'bg-peat-50', 'font-semibold');
-          // Scroll TOC to keep active item visible
-          link.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-          });
-        } else {
-          link.classList.remove('text-peat-600', 'bg-peat-50', 'font-semibold');
-        }
-      });
+      // If we're at the very top, use the first heading
+      if (!currentId && scrollY < HEADER_OFFSET + 100) {
+        currentId = headings[0]?.id || null;
+      }
+
+      return currentId;
     }
 
-    // Create IntersectionObserver with proper configuration
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.id;
+    /**
+     * Update the active state in the TOC
+     */
+    function updateTOC() {
+      const newActiveId = findActiveHeading();
 
-          // Update visibility tracking
-          if (entry.isIntersecting) {
-            visibleHeadings.add(id);
-          } else {
-            visibleHeadings.delete(id);
-          }
+      // Only update if the active heading has changed
+      if (newActiveId !== activeId) {
+        activeId = newActiveId;
+
+        // Remove active class from all links
+        tocLinks.forEach((link) => {
+          link.classList.remove(
+            'text-peat-600',
+            'bg-peat-50',
+            'font-semibold',
+            'border-l-3',
+            'border-peat-600',
+            '-ml-px',
+          );
+          link.classList.add('text-gray-600');
         });
 
-        // Update the active heading after all entries are processed
-        updateActiveHeading();
-      },
-      {
-        // Trigger when heading crosses these boundaries
-        // Top margin accounts for fixed header (120px)
-        rootMargin: '-120px 0px -75% 0px',
-        // Multiple thresholds for better precision
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-    );
+        // Add active class to the current link
+        if (activeId && tocLinks.has(activeId)) {
+          const activeLink = tocLinks.get(activeId);
+          if (activeLink) {
+            activeLink.classList.remove('text-gray-600');
+            activeLink.classList.add(
+              'text-peat-600',
+              'bg-peat-50',
+              'font-semibold',
+              'border-l-3',
+              'border-peat-600',
+              '-ml-px',
+            );
 
-    // Observe all headings
-    headings.forEach((heading) => {
-      observer.observe(heading);
-    });
+            // Scroll the TOC to keep active item visible
+            const nav = activeLink.closest('nav');
+            if (nav) {
+              const linkRect = activeLink.getBoundingClientRect();
+              const navRect = nav.getBoundingClientRect();
 
-    // Smooth scroll when clicking TOC links
+              // Check if link is outside visible area
+              if (linkRect.top < navRect.top || linkRect.bottom > navRect.bottom) {
+                activeLink.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'nearest',
+                });
+              }
+            }
+          }
+        }
+      }
+
+      ticking = false;
+    }
+
+    /**
+     * Request an update on scroll (throttled with requestAnimationFrame)
+     */
+    function requestTOCUpdate() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateTOC);
+        ticking = true;
+      }
+    }
+
+    // Listen to scroll events
+    window.addEventListener('scroll', requestTOCUpdate, { passive: true });
+    window.addEventListener('resize', requestTOCUpdate, { passive: true });
+
+    // Handle TOC link clicks
     tocLinks.forEach((link, id) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const heading = document.getElementById(id);
         if (heading) {
-          // Calculate position accounting for fixed header
-          const top = heading.getBoundingClientRect().top + window.scrollY - 100;
+          // Calculate exact position accounting for fixed header
+          const top = heading.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET + 20;
+
           window.scrollTo({
             top,
             behavior: 'smooth',
           });
 
-          // Manually trigger update after a short delay for smooth scroll
+          // Update immediately
           setTimeout(() => {
-            visibleHeadings.clear();
-            visibleHeadings.add(id);
-            updateActiveHeading();
-          }, 100);
+            activeId = id;
+            updateTOC();
+          }, 50);
         }
       });
     });
 
-    // Initial check for visible headings
-    setTimeout(() => {
-      headings.forEach((heading) => {
-        const rect = heading.getBoundingClientRect();
-        // Check if heading is in the viewport accounting for header
-        if (rect.top >= 100 && rect.top <= window.innerHeight * 0.3) {
-          visibleHeadings.add(heading.id);
-        }
-      });
-      updateActiveHeading();
-    }, 100);
+    // Initial update
+    setTimeout(updateTOC, 100);
   });
 </script>

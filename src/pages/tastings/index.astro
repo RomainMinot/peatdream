@@ -30,16 +30,20 @@ const tastings = currentCategory
   ? allTastings.filter((tasting) => tasting.data.category === currentCategory)
   : allTastings;
 
-// Get all unique categories
-const categories = [
-  ...new Set(allTastings.map((tasting) => tasting.data.category).filter(Boolean)),
-] as string[];
+// Get all categories (including duplicates for counting)
+const allCategories = allTastings
+  .map((tasting) => tasting.data.category)
+  .filter(Boolean) as string[];
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={FallbackImage} />
+    <BaseHead
+      title={'Tastings - ' + SITE_TITLE}
+      description={SITE_DESCRIPTION}
+      image={FallbackImage}
+    />
   </head>
   <body class="bg-white">
     <Header />
@@ -48,7 +52,7 @@ const categories = [
     <div class="pt-32 pb-12 bg-gradient-to-b from-accent-50 to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-accent mb-4">
-          {currentCategory ? `Articles sur ${currentCategory}` : 'Toutes les dégustations'}
+          {currentCategory ? `Dégustations · ${currentCategory}` : 'Toutes les dégustations'}
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           {
@@ -57,16 +61,27 @@ const categories = [
               : 'Découvrez nos dégustations et voyages autour du whisky et des spiritueux'
           }
         </p>
-        <div class="mt-4 text-sm text-gray-500">
-          {tastings.length} dégustation{tastings.length > 1 ? 's' : ''}
+        <div
+          class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-accent-200">
+          <svg class="w-5 h-5 text-peat-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+            </path>
+          </svg>
+          <span class="text-sm font-medium text-gray-700">
+            {tastings.length} dégustation{tastings.length > 1 ? 's' : ''}
+          </span>
         </div>
       </div>
     </div>
 
     <!-- Category Filter -->
     {
-      categories.length > 0 && (
-        <CategoryFilter categories={categories} currentCategory={currentCategory} />
+      allCategories.length > 0 && (
+        <CategoryFilter categories={allCategories} currentCategory={currentCategory} />
       )
     }
 
